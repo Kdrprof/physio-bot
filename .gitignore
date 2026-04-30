@@ -1,0 +1,30 @@
+# Environment & Secrets
+.env
+.env.local
+.env.production
+secrets.txt
+*.key
+*.pem
+
+# Database (local only — Railway has its own)
+*.db
+*.sqlite
+*.sqlite3
+physioassist.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+venv/
+env/
+.venv/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
