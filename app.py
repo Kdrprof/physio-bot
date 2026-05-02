@@ -106,7 +106,7 @@ class PhysioBot:
         
         try:
             response = client.messages.create(
-                model="claude-3-5-sonnet-20241022",
+                model="gpt-4.1-mini",
                 max_tokens=300,
                 messages=session['messages']
             )
