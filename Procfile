@@ -1,1 +1,1 @@
-python bot_hybrid_smart.py
+python main.py
