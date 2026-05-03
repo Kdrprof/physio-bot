@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 # Environment variables
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
-ADMIN_ID = 8660311978
+ADMIN_ID = 1059207578  # Your user ID
 PORT = int(os.getenv('PORT', 8000))
 RAILWAY_STATIC_URL = os.getenv('RAILWAY_STATIC_URL', 'https://physio-bot.up.railway.app')
 PAYMENT_PROVIDER_TOKEN = os.getenv('PAYMENT_PROVIDER_TOKEN', 'test_provider')
@@ -261,7 +261,7 @@ Please select your language:
             await context.bot.send_chat_action(chat_id=user_id, action='typing')
             
             response = client.messages.create(
-                model="claude-3-5-sonnet-20241022",
+                model="claude-3-5-sonnet-20250514",
                 max_tokens=500,
                 system=system_prompt,
                 messages=self.user_sessions[user_id]['messages']
