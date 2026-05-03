@@ -167,10 +167,15 @@ async def setup_webhook():
 
 async def main():
     """Main entry point"""
-    global application
+    global application, bot
     
     try:
         logger.info("🔧 Initializing Application...")
+        
+        # Initialize bot first
+        logger.info("🔧 Initializing Bot...")
+        await bot.initialize()
+        logger.info("✅ Bot initialized")
         
         application = Application.builder().token(BOT_TOKEN).build()
         logger.info("✅ Application created")
@@ -181,7 +186,7 @@ async def main():
         
         logger.info("✅ Handlers added")
         
-        # Initialize
+        # Initialize application
         await application.initialize()
         logger.info("✅ App initialized")
         
