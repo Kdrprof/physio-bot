@@ -169,25 +169,29 @@ async def main():
     """Main entry point"""
     global application
     
-    logger.info("🔧 Initializing Application...")
-    
-    application = Application.builder().token(BOT_TOKEN).build()
-    logger.info("✅ Application created")
-    
-    # Add handlers
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(CallbackQueryHandler(button_callback))
-    
-    logger.info("✅ Handlers added")
-    
-    # Initialize
-    await application.initialize()
-    logger.info("✅ App initialized")
-    
-    # Setup webhook
-    await setup_webhook()
-    
-    logger.info("✅ BOT READY FOR WEBHOOKS!")
+    try:
+        logger.info("🔧 Initializing Application...")
+        
+        application = Application.builder().token(BOT_TOKEN).build()
+        logger.info("✅ Application created")
+        
+        # Add handlers
+        application.add_handler(CommandHandler("start", start))
+        application.add_handler(CallbackQueryHandler(button_callback))
+        
+        logger.info("✅ Handlers added")
+        
+        # Initialize
+        await application.initialize()
+        logger.info("✅ App initialized")
+        
+        # Setup webhook
+        await setup_webhook()
+        
+        logger.info("✅ BOT READY FOR WEBHOOKS!")
+    except Exception as e:
+        logger.error(f"❌ CRITICAL ERROR in main(): {e}", exc_info=True)
+        raise
 
 
 # Startup event
